@@ -11,7 +11,7 @@ app.use(cors());
 const otpStorage = new Map();
 
 // SMS Alert API credentials
-const SMS_ALERT_API_KEY = "67724b859e0eb"; // Replace with your API key
+const SMS_ALERT_API_KEY = "6776811f99a70"; // Replace with your API key
 
 // Route to send OTP
 app.post("/sendOtp", async (req, res) => {
