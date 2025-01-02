@@ -3,15 +3,16 @@ const bodyParser = require("body-parser");
 const cors = require("cors");
 const { v4: uuidv4 } = require("uuid"); // For generating OTPs
 const twilio = require("twilio");
+require("dotenv").config(); // Load environment variables
 
 const app = express();
 app.use(bodyParser.json());
 app.use(cors());
 
-// Twilio credentials
-const accountSid = "AC3a65c15fbeb4d8ccd8d6b62666f9928c"; // Replace with your Account SID
-const authToken = "5d2a0e4dd5d3cc71ed3ac014a0fae36d"; // Replace with your Auth Token
-const twilioPhoneNumber = "+12317517604"; // Replace with your Twilio phone number
+// Twilio credentials from environment variables
+const accountSid = process.env.TWILIO_ACCOUNT_SID; // Replace with your Account SID from .env
+const authToken = process.env.TWILIO_AUTH_TOKEN; // Replace with your Auth Token from .env
+const twilioPhoneNumber = process.env.TWILIO_PHONE_NUMBER; // Replace with your Twilio phone number from .env
 
 const client = twilio(accountSid, authToken);
 
